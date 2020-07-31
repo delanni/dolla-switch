@@ -147,7 +147,7 @@ describe("$switch.default", () => {
     expect(skullEmoji === Emojis["💀"]).toBeTruthy();
   });
 
-  test("with null input", () => {
+  test("with undefined input", () => {
     enum Emotions {
       sad,
       happy,
@@ -161,6 +161,31 @@ describe("$switch.default", () => {
     }
     const skullEmoji: Emojis = $switch(
       undefined,
+      {
+        [Emotions.happy]: () => Emojis["😄"],
+        [Emotions.dead]: () => Emojis["💀"],
+      },
+      () => Emojis["💩"]
+    );
+
+    expect(skullEmoji).toBe(Emojis["💩"]);
+    expect(skullEmoji === Emojis["💩"]).toBeTruthy();
+  });
+
+  test("with null input", () => {
+    enum Emotions {
+      sad,
+      happy,
+      dead,
+    }
+    enum Emojis {
+      "😢",
+      "😄",
+      "💀",
+      "💩",
+    }
+    const skullEmoji: Emojis = $switch(
+      null,
       {
         [Emotions.happy]: () => Emojis["😄"],
         [Emotions.dead]: () => Emojis["💀"],
