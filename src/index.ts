@@ -16,17 +16,18 @@ export function $switchCaseStrict<K extends string | number, V>(
 }
 
 export function $switchCaseDefault<K extends string | number, V>(
-  input: K,
+  input: K | null | undefined,
   cases: { [k in K]?: () => V },
   defaultCase: () => V
 ): V {
-  const candidate = cases[input];
-  if (candidate) {
-    const value = candidate();
-    return value;
-  } else {
+  if (input === undefined || input === null) {
     const value = defaultCase();
     return value;
+  } else {
+    const candidate = cases[input];
+    return candidate 
+      ? candidate()
+      : defaultCase();
   }
 }
 
