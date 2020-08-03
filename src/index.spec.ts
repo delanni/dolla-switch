@@ -159,7 +159,7 @@ describe("$switch.default", () => {
       "💀",
       "💩",
     }
-    const skullEmoji: Emojis = $switch(
+    const poopEmoji: Emojis = $switch(
       undefined,
       {
         [Emotions.happy]: () => Emojis["😄"],
@@ -168,8 +168,8 @@ describe("$switch.default", () => {
       () => Emojis["💩"]
     );
 
-    expect(skullEmoji).toBe(Emojis["💩"]);
-    expect(skullEmoji === Emojis["💩"]).toBeTruthy();
+    expect(poopEmoji).toBe(Emojis["💩"]);
+    expect(poopEmoji === Emojis["💩"]).toBeTruthy();
   });
 
   test("with null input", () => {
@@ -184,7 +184,7 @@ describe("$switch.default", () => {
       "💀",
       "💩",
     }
-    const skullEmoji: Emojis = $switch(
+    const poopEmoji: Emojis = $switch(
       null,
       {
         [Emotions.happy]: () => Emojis["😄"],
@@ -193,7 +193,7 @@ describe("$switch.default", () => {
       () => Emojis["💩"]
     );
 
-    expect(skullEmoji).toBe(Emojis["💩"]);
-    expect(skullEmoji === Emojis["💩"]).toBeTruthy();
+    expect(poopEmoji).toBe(Emojis["💩"]);
+    expect(poopEmoji === Emojis["💩"]).toBeTruthy();
   });
 });

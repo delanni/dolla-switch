@@ -21,13 +21,14 @@ export function $switchCaseDefault<K extends string | number, V>(
   defaultCase: () => V
 ): V {
   if (input === undefined || input === null) {
-    const value = defaultCase();
-    return value;
+    return defaultCase();
   } else {
-    const candidate = cases[input];
-    return candidate 
-      ? candidate()
-      : defaultCase();
+    const caseCandidate = cases[input];
+    if (caseCandidate) {
+      return caseCandidate();
+    } else {
+      return defaultCase();
+    }
   }
 }
 
