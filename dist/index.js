@@ -12,17 +12,20 @@ function $switchCaseStrict(input, cases) {
 }
 exports.$switchCaseStrict = $switchCaseStrict;
 function $switchCaseDefault(input, cases, defaultCase) {
-    var candidate = cases[input];
-    if (candidate) {
-        var value = candidate();
-        return value;
+    if (input === undefined || input === null) {
+        return defaultCase();
     }
     else {
-        var value = defaultCase();
-        return value;
+        var caseCandidate = cases[input];
+        if (caseCandidate) {
+            return caseCandidate();
+        }
+        else {
+            return defaultCase();
+        }
     }
 }
 exports.$switchCaseDefault = $switchCaseDefault;
 $switchCaseDefault.strict = $switchCaseStrict;
-$switchCaseDefault.default = $switchCaseDefault;
 exports.default = $switchCaseDefault;
+//# sourceMappingURL=index.js.map
