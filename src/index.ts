@@ -32,6 +32,5 @@ export function $switchCaseDefault<K extends string | number, V>(
 }
 
 $switchCaseDefault.strict = $switchCaseStrict;
-$switchCaseDefault.default = $switchCaseDefault;
 
 export default $switchCaseDefault;
