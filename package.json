@@ -23,6 +23,7 @@
     "url": "https://github.com/delanni/dolla-switch.git"
   },
   "scripts": {
+    "prepublish": "rm -rf dist/ && npm run build",
     "build": "tsc",
     "test": "jest"
   },
@@ -30,7 +31,7 @@
     "@types/jest": "^25.2.3",
     "jest": "^26.0.1",
     "ts-jest": "^26.0.0",
-    "typescript": "^3.8.3"
+    "typescript": "3.8.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
