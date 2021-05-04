@@ -1,7 +1,7 @@
 {
   "name": "dolla-switch",
   "license": "MIT",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Switch statements to be used as expressions, for vegetarians, or otherwise",
   "keywords": [
     "switch",
